@@ -6,11 +6,13 @@
   "scripts": {
     "test": "",
     "start": "webpack-dev-server --progress --inline --hot",
-    "build": "webpack"
+    "build": "webpack-w & node server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mongoose": "^4.11.3",
+    "morgan": "^1.8.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1"
