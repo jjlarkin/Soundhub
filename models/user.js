@@ -1,23 +1,39 @@
 var mongoose = require("mongoose");
-var bcrypt = require('bcrypt-nodejs');
+// var bcrypt = require('bcrypt-nodejs');
 
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  client_id: {
-    type: String
-  },
-  client_secret: {
-    type: String
-  },
-
-  redirect_uri : {
-  	type : String
+  username: {
+    type: String,
+    trim: true,
+    required: "Username is Required"
   },
 
-    token : {
-    type : String
+  password: {
+    type: String,
+    trim: true,
+    required: "Password is Required",
+    validate: [
+      function(input) {
+        return input.length >= 6;
+      },
+      "Password should be longer."
+    ]
+  },
+
+  score : {
+  	type : Number
+  },
+
+  totalWins : {
+    type : Number
+  },
+
+    totalLosses : {
+    type : Number
   }
+
 
 });
 
