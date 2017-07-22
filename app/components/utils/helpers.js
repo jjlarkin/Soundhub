@@ -7,14 +7,14 @@ import axios from 'axios'
 export default {
 
     // This function serves our purpose of running the query to geolocate.
-    runQuery(location) {
+    runQuery() {
 
-        console.log(location);
-const APIKEY="ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
+
+        const APIKEY="ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
         // Figure out the geolocation
         // const queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
-        const queryURL = `https://api.napster.com/v2.1/tracks/top?apikey=${APIKEY}`;
-
+        let queryURL = `https://api.napster.com/v2.1/tracks/top?apikey=${APIKEY}`;
+        console.log(queryURL);
 
         return axios.get(queryURL).then(function (response) {
             // If get get a result, return that result's formatted address property
@@ -30,6 +30,11 @@ const APIKEY="ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
 
     // This function hits our own server to retrieve the record of query results
     getSong() {
-        return axios.get("/api");
+        const APIKEY="ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
+        // Figure out the geolocation
+        // const queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
+        let queryURL = `https://api.napster.com/v2.1/tracks/top?apikey=${APIKEY}`;
+
+        return axios.get(queryURL);
     }
 };

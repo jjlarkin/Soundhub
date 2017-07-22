@@ -10,6 +10,11 @@ var SpotifyPlayer = React.createClass({
     },
 
     componentDidMount: function() {
+
+        helpers.getSong().then(function (response) {
+            console.log(response.data.tracks[0].previewURL)
+        });
+
         var $player = $('.player');
 
         /**
@@ -103,9 +108,7 @@ var SpotifyPlayer = React.createClass({
         localStorage.setItem('codepenReactPlayer', playbackTime);
     },
     render: function() {
-        helpers.getSong().then(function (response) {
-            console.log(response)
-        });
+
         return <audio controls className="player" preload="false">
             <source src="http://www.nihilus.net/soundtracks/Static%20Memories.mp3" />
         </audio>
