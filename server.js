@@ -83,8 +83,6 @@ app.post("/api", function(req, res) {
 
 app.post("/api/score", function(req, res) {
   console.log("BODY: " + req.body.score);
-
-
 /*
 var query = {'username':req.user.username};
 req.newData.username = req.user.username;
@@ -95,8 +93,15 @@ MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
 
 */
 
+//User.findOneAndUpdate({ sore: req.body.teamScore }, function(err, user) {
+//   if (err) throw err;
+
+//   // we have the updated user returned to us
+//   console.log("Score Updated");
+// });
 
 }
+
 // -------------------------------------------------
 
 // Listener
