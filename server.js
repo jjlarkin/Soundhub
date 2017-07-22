@@ -47,8 +47,8 @@ app.get("/", function(req, res) {
 app.get("/api", function(req, res) {
 
   // We will find all the records, sort it in descending order, then limit the records to 5
-  History.find({}).sort([
-    ["date", "descending"]
+  User.find({}).sort([
+    ["score", "ascending"]
   ]).limit(5).exec(function(err, doc) {
     if (err) {
       console.log(err);
@@ -61,19 +61,23 @@ app.get("/api", function(req, res) {
 
 // This is the route we will send POST requests to save each search.
 app.post("/api", function(req, res) {
-  console.log("BODY: " + req.body.location);
+  console.log("BODY: " + req.body.teamName);
+
+app.post("/api/score", function(req, res) {
+  console.log("BODY: " + req.body.score);
+
 
   // Here we'll save the location based on the JSON input.
   // We'll use Date.now() to always get the current date time
-  History.create({
-    location: req.body.location,
-    date: Date.now()
+  User.create({
+    teamName: req.body.teamName,
+    score: 0;
   }, function(err) {
     if (err) {
       console.log(err);
     }
     else {
-      res.send("Saved Search");
+      console.log("Team Created")
     }
   });
 });

@@ -29,12 +29,16 @@ export default {
     },
 
     // This function hits our own server to retrieve the record of query results
-    getHistory() {
+    getUser() {
         return axios.get("/api");
     },
 
     // This function posts new searches to our database.
-    postHistory(location) {
-        return axios.post("/api", {location: location});
+    postUser(teamName) { // CREATE TEAM
+        return axios.post("/api" , {teamName: teamName});
+    }
+
+        postUser(teamName) {//UPDATING SCORE 
+        return axios.post("/api" , {score: score});
     }
 };

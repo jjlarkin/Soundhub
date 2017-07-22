@@ -7,7 +7,7 @@ var UserSchema = new Schema({
   teamName: {
     type: String,
     trim: true,
-    required: "Username is Required"
+    required: "Team Name is Required"
   },
 
   score : {
