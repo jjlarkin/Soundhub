@@ -61,7 +61,7 @@ var UserSchema = new Schema({
  });
 
 
-// Pass the schema to the User model
+// Pass the schemato the User model
 var User = mongoose.model("User", UserSchema);
 
 // Export the User model
