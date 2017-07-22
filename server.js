@@ -3,9 +3,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var request = require("request");
 
-// Require History Schema
-//var History = require("./models/History");
+// Require User Schema
+//var User = require("./models/User");
 
 // Create Instance of Express
 var app = express();
@@ -48,7 +49,7 @@ app.get("/api", function(req, res) {
 
   // We will find all the records, sort it in descending order, then limit the records to 5
   User.find({}).sort([
-    ["score", "ascending"]
+    ["score", "descending"]
   ]).limit(5).exec(function(err, doc) {
     if (err) {
       console.log(err);
@@ -65,8 +66,7 @@ app.post("/api", function(req, res) {
 
 
 
-  // Here we'll save the location based on the JSON input.
-  // We'll use Date.now() to always get the current date time
+
   User.create({
     teamName: req.body.teamName,
     score: 0;
@@ -93,7 +93,7 @@ MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
 
 */
 
-//User.findOneAndUpdate({ sore: req.body.teamScore }, function(err, user) {
+//User.findOneAndUpdate({ sore: req.body.score }, function(err, user) {
 //   if (err) throw err;
 
 //   // we have the updated user returned to us
