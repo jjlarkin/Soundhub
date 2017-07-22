@@ -13,23 +13,23 @@ export default function songsToGuess(){
 
 	.then(function(response){
 
-	
+
 		for(var i = 0; i<response.data.tracks.length; i++){
-			
+
 			songs.push(response.data.tracks[i].previewURL);
 			titles.push(response.data.tracks[i].name);
 		}
-	
+
 		//console.log(songs);
 		//console.log(titles);
 
+
 	})
-	.cath((error) =>reject(error));
+	.catch((error) =>reject(error));
 
 
-	return songs;
 
-	return titles;
+
 
 	}
 
