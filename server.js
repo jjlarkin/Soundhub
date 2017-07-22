@@ -63,8 +63,6 @@ app.get("/api", function(req, res) {
 app.post("/api", function(req, res) {
   console.log("BODY: " + req.body.teamName);
 
-app.post("/api/score", function(req, res) {
-  console.log("BODY: " + req.body.score);
 
 
   // Here we'll save the location based on the JSON input.
@@ -82,6 +80,23 @@ app.post("/api/score", function(req, res) {
   });
 });
 
+
+app.post("/api/score", function(req, res) {
+  console.log("BODY: " + req.body.score);
+
+
+/*
+var query = {'username':req.user.username};
+req.newData.username = req.user.username;
+MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
+    if (err) return res.send(500, { error: err });
+    return res.send("succesfully saved");
+});
+
+*/
+
+
+}
 // -------------------------------------------------
 
 // Listener
