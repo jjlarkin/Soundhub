@@ -4,6 +4,10 @@ import SearchBar from './search_bar';
 import YTSearch from 'youtube-api-search';
 import VideoList from './video_list';
 import VideoDetail from './video_detail';
+import SpotifyPlayer from './SpotifyPlayer';
+import AddTeamForm from './AddTeamForm'
+
+
 const API_KEY = 'AIzaSyBMdMQj26Y0O7vUk1HTFkd5BZR0ZPKnZDw';
 // create a new component which should produce some html
 class Main extends Component {
@@ -24,16 +28,19 @@ class Main extends Component {
     render(){
         return (
             <div>
-                hello
-                <SearchBar />
-                <VideoDetail video={this.state.selectedVideo} />
-                <VideoList
-                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-                    videos={this.state.videos} />
+                <AddTeamForm/>
+
+                <SpotifyPlayer/>
+                {/*// hello*/}
+                {/*// /!*<SearchBar />*!/*/}
+                {/*//*/}
+                {/*/!*<VideoDetail video={this.state.selectedVideo} />*!/*/}
+                {/*/!*<VideoList*!/*/}
+                    {/*onVideoSelect={selectedVideo => this.setState({selectedVideo})}*/}
+                    {/*videos={this.state.videos} />*/}
             </div>
         );
     }
 }
-// take this component html and put it on the page (in the DOM)
-//ReactDOM.render(<App/>, document.querySelector('.container'));
+
 export default Main
