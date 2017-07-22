@@ -14,6 +14,8 @@ var UserSchema = new Schema({
   	type : Number
   }
 
+ });
+
 
 
 var User = mongoose.model("User", UserSchema);
