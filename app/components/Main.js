@@ -6,6 +6,7 @@ import VideoList from './video_list';
 import VideoDetail from './video_detail';
 import SpotifyPlayer from './SpotifyPlayer';
 import AddTeamForm from './AddTeamForm'
+import HighScore from './HighScore'
 
 
 const API_KEY = 'AIzaSyBMdMQj26Y0O7vUk1HTFkd5BZR0ZPKnZDw';
@@ -29,7 +30,7 @@ class Main extends Component {
         return (
             <div>
                 <AddTeamForm/>
-
+                <HighScore/>
                 <SpotifyPlayer/>
                 {/*// hello*/}
                 {/*// /!*<SearchBar />*!/*/}
