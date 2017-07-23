@@ -34,7 +34,8 @@ app.use(express.static("./public"));
 //   mongoose.connect(databaseURI)
 // }
 
-mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds149511.mlab.com:49511/heroku_r3svb014");
+// mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds149511.mlab.com:49511/heroku_r3svb014");
+mongoose.connect("mongodb://localhost/soundgame");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -46,6 +47,26 @@ db.once("open", function() {
 });
 
 // -------------------------------------------------
+
+// Dummy DATA================================================
+var exampleUser = new User({
+  teamName: "Ernest",
+  score : 20
+});
+// Using the save method in mongoose, we create our example user in the db
+exampleUser.save(function(error, doc) {
+  // Log any errors
+  if (error) {
+    console.log(error);
+  }
+  // Or log the doc
+  else {
+    console.log(doc);
+  }
+});
+
+//End of Dummy Data======================================================
+
 
 // Main "/" Route. This will redirect the user to our rendered React application
 app.get("/", function(req, res) {
@@ -73,9 +94,6 @@ app.get("/api", function(req, res) {
 app.post("/api", function(req, res) {
   console.log("BODY: " + req.body.teamName);
 
-
-
-
   User.create({
     teamName: req.body.teamName,
     score: 0
@@ -93,9 +111,9 @@ app.post("/api", function(req, res) {
 app.post("/api/score", function(req, res) {
   console.log("BODY: " + req.body.score);
 /*
-var query = {'username':req.user.username};
-req.newData.username = req.user.username;
-MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
+var query = {'teamName':req.user.teamName};
+req.newData.teamName = req.user.teamName;
+User.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
     if (err) return res.send(500, { error: err });
     return res.send("succesfully saved");
 });

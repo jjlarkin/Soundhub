@@ -50,7 +50,7 @@ export default {
         return axios.post("/api" , {teamName: teamName});
     }
 
-    postUser(teamName) {//UPDATING SCORE 
-        return axios.post("/api" , {score: score});
+    postUser(teamName, score) {//UPDATING SCORE 
+        return axios.post("/api/score" , {teamName : teamName ,score: score});
     }
 };

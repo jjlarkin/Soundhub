@@ -14,7 +14,7 @@ var UserSchema = new Schema({
   	type : Number
   }
 
- });
+});
 
 
 
