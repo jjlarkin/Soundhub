@@ -110,22 +110,13 @@ app.post("/api", function(req, res) {
 
 app.post("/api/score", function(req, res) {
   console.log("BODY: " + req.body.score);
-/*
+
 var query = {'teamName':req.user.teamName};
-req.newData.teamName = req.user.teamName;
-User.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
+
+User.findOneAndUpdate(query, {$set:{score: req.body.score}}, {upsert:true}, function(err, doc){
     if (err) return res.send(500, { error: err });
     return res.send("succesfully saved");
-});
-
-*/
-
-//User.findOneAndUpdate({ sore: req.body.score }, function(err, user) {
-//   if (err) throw err;
-
-//   // we have the updated user returned to us
-//   console.log("Score Updated");
-// });
+});   
 
 });
 
