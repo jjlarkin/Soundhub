@@ -23,12 +23,6 @@ module.exports = User;
 
 // console.log(User)
 
-
-
-
-
-
-
 // Create the Schema class
 // var Schema = mongoose.Schema;
 
@@ -66,13 +60,10 @@ module.exports = User;
 //  });
 
 
-<<<<<<< HEAD
-// // Pass the schema to the User model
-// var User = mongoose.model("User", UserSchema);
-=======
+
 // Pass the schemato the User model
 var User = mongoose.model("User", UserSchema);
->>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97
+
 
 // // Export the User model
 // module.exports = User;
