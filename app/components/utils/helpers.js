@@ -1,4 +1,3 @@
-
 // Include the axios package for performing HTTP requests (promise based alternative to request)
 import axios from 'axios'
 
@@ -39,7 +38,6 @@ export default {
         return axios.get(queryURL);
     }
 };
-
     // This function hits our own server to retrieve the record of query results
     getUser() {
         return axios.get("/api");

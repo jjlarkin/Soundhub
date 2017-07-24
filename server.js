@@ -24,46 +24,54 @@ app.use(express.static("./public"));
 
 // -------------------------------------------------
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
-// mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/reactlocate");
 
-// var  databaseURI = "mongodb://<dbuser>:Monodb4me1@ds149511.mlab.com:49511/heroku_r3svb014"
-// if (process.env.MONGODB_URI){
-//   mongoose.connect(process.env.MONGODB_URI);
-// }else{
-//   mongoose.connect(databaseURI)
-// }
 
-// mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds149511.mlab.com:49511/heroku_r3svb014");
-mongoose.connect("mongodb://localhost/soundgame");
-var db = mongoose.connection;
+// mongoose.connect("mongodb://heroku_mlzrwpsv:heroku_mlzrwpsv123@ds119223.mlab.com:19223/heroku_mlzrwpsv");
+// mongoose.connect("mongodb://localhost/soundgame");
+// let db = mongoose.connection;
 
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
+// db.on("error", function(err) {
+//   console.log("Mongoose Error: ", err);
+// });
 
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// db.once("open", function() {
+//   console.log("Mongoose connection successful.");
+// });
+
+
+//Database Config with mongoose
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect('mongodb://localhost/soundgame');
+}
+
+let db = mongoose.connection;
+
+//Handle Database(mongoose) errors
+db.on('error', (error) => console.log('Mongoose Error:', error));
+
+//If successfully connected to db through mongoose.
+db.on('open', () => console.log('Mongoose connection has been successful!'));
 
 // -------------------------------------------------
 
 // Dummy DATA================================================
-var exampleUser = new User({
-  teamName: "Ernest",
-  score : 20
-});
-// Using the save method in mongoose, we create our example user in the db
-exampleUser.save(function(error, doc) {
-  // Log any errors
-  if (error) {
-    console.log(error);
-  }
-  // Or log the doc
-  else {
-    console.log(doc);
-  }
-});
+    var exampleUser = new User({
+      teamName: "Ernest",
+      score : 20
+    });
+    // Using the save method in mongoose, we create our example user in the db
+    exampleUser.save(function(error, doc) {
+      // Log any errors
+      if (error) {
+        console.log(error);
+      }
+      // Or log the doc
+      else {
+        console.log(doc);
+      }
+    });
 
 //End of Dummy Data======================================================
 
