@@ -3,9 +3,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var request = require("request");
 
-// Require History Schema
-//var History = require("./models/History");
+// Require User Schema
+var User = require("./models/User");
 
 // Create Instance of Express
 var app = express();
@@ -23,19 +24,57 @@ app.use(express.static("./public"));
 
 // -------------------------------------------------
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/reactlocate");
-var db = mongoose.connection;
 
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
 
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// mongoose.connect("mongodb://heroku_mlzrwpsv:heroku_mlzrwpsv123@ds119223.mlab.com:19223/heroku_mlzrwpsv");
+// mongoose.connect("mongodb://localhost/soundgame");
+// let db = mongoose.connection;
+
+// db.on("error", function(err) {
+//   console.log("Mongoose Error: ", err);
+// });
+
+// db.once("open", function() {
+//   console.log("Mongoose connection successful.");
+// });
+
+
+//Database Config with mongoose
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect('mongodb://localhost/soundgame');
+}
+
+let db = mongoose.connection;
+
+//Handle Database(mongoose) errors
+db.on('error', (error) => console.log('Mongoose Error:', error));
+
+//If successfully connected to db through mongoose.
+db.on('open', () => console.log('Mongoose connection has been successful!'));
 
 // -------------------------------------------------
+
+// Dummy DATA================================================
+    var exampleUser = new User({
+      teamName: "Ernest",
+      score : 20
+    });
+    // Using the save method in mongoose, we create our example user in the db
+    exampleUser.save(function(error, doc) {
+      // Log any errors
+      if (error) {
+        console.log(error);
+      }
+      // Or log the doc
+      else {
+        console.log(doc);
+      }
+    });
+
+//End of Dummy Data======================================================
+
 
 // Main "/" Route. This will redirect the user to our rendered React application
 app.get("/", function(req, res) {
@@ -47,8 +86,8 @@ app.get("/", function(req, res) {
 app.get("/api", function(req, res) {
 
   // We will find all the records, sort it in descending order, then limit the records to 5
-  History.find({}).sort([
-    ["date", "descending"]
+  User.find({}).sort([
+    ["score", "descending"]
   ]).limit(5).exec(function(err, doc) {
     if (err) {
       console.log(err);
@@ -61,21 +100,32 @@ app.get("/api", function(req, res) {
 
 // This is the route we will send POST requests to save each search.
 app.post("/api", function(req, res) {
-  console.log("BODY: " + req.body.location);
+  console.log("BODY: " + req.body.teamName);
 
-  // Here we'll save the location based on the JSON input.
-  // We'll use Date.now() to always get the current date time
-  History.create({
-    location: req.body.location,
-    date: Date.now()
+  User.create({
+    teamName: req.body.teamName,
+    score: 0
   }, function(err) {
     if (err) {
       console.log(err);
     }
     else {
-      res.send("Saved Search");
+      console.log("Team Created")
     }
   });
+});
+
+
+app.post("/api/score", function(req, res) {
+  console.log("BODY: " + req.body.score);
+
+var query = {'teamName':req.user.teamName};
+
+User.findOneAndUpdate(query, {$set:{score: req.body.score}}, {upsert:true}, function(err, doc){
+    if (err) return res.send(500, { error: err });
+    return res.send("succesfully saved");
+});   
+
 });
 
 // -------------------------------------------------

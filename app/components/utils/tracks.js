@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -32,8 +36,11 @@ export default function songsToGuess(){
 
 
 	}
+<<<<<<< HEAD
+=======
 
 
 
 
 
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97

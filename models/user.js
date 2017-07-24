@@ -1,23 +1,28 @@
 var mongoose = require("mongoose");
-var bcrypt = require('bcrypt-nodejs');
+// var bcrypt = require('bcrypt-nodejs');
 
-// var Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-// var UserSchema = new Schema({
-//   email: {
-//     type: String
-//   },
-//   password: {
-//     type: String
-//   },
+var UserSchema = new Schema({
+  teamName: {
+    type: String,
+    trim: true,
+    required: "Team Name is Required"
+  },
 
-//   trackList : {
-//   	type : Array
-//   }
-// });
+  score : {
+  	type : Number
+  }
 
-// var User = mongoose.model("User", UserSchema);
-// module.exports = User;
+});
+
+
+
+var User = mongoose.model("User", UserSchema);
+module.exports = User;
+
+// console.log(User)
+
 
 
 
@@ -25,44 +30,49 @@ var bcrypt = require('bcrypt-nodejs');
 
 
 // Create the Schema class
-var Schema = mongoose.Schema;
+// var Schema = mongoose.Schema;
 
-// Instantiate a new Schema, UserSchema
-var UserSchema = new Schema({
-  // username: a required, trimmed string
-  username: {
-    type: String,
-    trim: true,
-    required: "Username is Required"
-  },
-  // password: a required, trimmed string that's 6 characters or longer
-  password: {
-    type: String,
-    trim: true,
-    required: "Password is Required",
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      "Password should be longer."
-    ]
-  },
-  // email: a string that's checked with regex to ensure it's in the expected format
-  email: {
-    type: String,
-    unique: true,
-    match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
-  },
+// // Instantiate a new Schema, UserSchema
+// var UserSchema = new Schema({
+//   // username: a required, trimmed string
+//   username: {
+//     type: String,
+//     trim: true,
+//     required: "Username is Required"
+//   },
+//   // password: a required, trimmed string that's 6 characters or longer
+//   password: {
+//     type: String,
+//     trim: true,
+//     required: "Password is Required",
+//     validate: [
+//       function(input) {
+//         return input.length >= 6;
+//       },
+//       "Password should be longer."
+//     ]
+//   },
+//   // email: a string that's checked with regex to ensure it's in the expected format
+//   email: {
+//     type: String,
+//     unique: true,
+//     match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
+//   },
 
-  playList : {
- 	type : Array
-  }
+//   playList : {
+//  	type : Array
+//   }
  
- });
+//  });
 
 
+<<<<<<< HEAD
+// // Pass the schema to the User model
+// var User = mongoose.model("User", UserSchema);
+=======
 // Pass the schemato the User model
 var User = mongoose.model("User", UserSchema);
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97
 
-// Export the User model
-module.exports = User;
+// // Export the User model
+// module.exports = User;
