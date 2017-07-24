@@ -21,13 +21,24 @@ class AddTeamForm extends React.Component {
         <input ref={(input) => this.score = input} type="text" placeholder="Team Score" />
 
 
+<<<<<<< HEAD
       </form>
+=======
+      <form/>
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97
     )
   }
 }
 
 AddTeamForm.propTypes = {
+<<<<<<< HEAD
   //addTeam: React.PropTypes.func.isRequired
 }
 
 export default AddTeamForm;
+=======
+  addTeam: React.PropTypes.func.isRequired
+}
+
+export default AddTeamForm;
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97

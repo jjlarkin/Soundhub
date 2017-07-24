@@ -34,6 +34,7 @@ export default {
         // Figure out the geolocation
         // const queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
         let queryURL = `https://api.napster.com/v2.1/tracks/top?apikey=${APIKEY}`;
+<<<<<<< HEAD
 
         return axios.get(queryURL);
     }
@@ -50,5 +51,9 @@ export default {
 
     postUser(teamName, score) {//UPDATING SCORE 
         return axios.post("/api/score" , {teamName : teamName ,score: score});
+=======
+
+        return axios.get(queryURL);
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97
     }
 };

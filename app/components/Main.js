@@ -9,7 +9,10 @@ import AddTeamForm from './AddTeamForm'
 // import HighScore from './HighScore'
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d627f1949be94cb012416a24d80770233ef1d97
 const API_KEY = 'AIzaSyBMdMQj26Y0O7vUk1HTFkd5BZR0ZPKnZDw';
 // create a new component which should produce some html
 class Main extends Component {
