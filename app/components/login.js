@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import base from './base';
+import Base from './Base';
 import HighScore from'./HighScore';
 import Team from './Team'
 

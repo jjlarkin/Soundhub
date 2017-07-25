@@ -5,8 +5,8 @@ import ReactDOM from "react-dom";
 
 // Include the main Parent Component
 import Main from "./components/Main";
-import base from './components/base';
-import Login from './components/login';
+import base from './components/Base';
+import Login from './components/Login';
 import "./sass/main.scss";
 
 
@@ -68,6 +68,16 @@ class App extends React.Component {
     teams[key] = updatedTeam;
     this.setState({ teams });
   }
+}const Root = () => {
+    return (
+        <BrowserRouter>
+          <div>
+            <Match exactly pattern="/" component={Login} />
+            <Match pattern="/Main" component={Main} />
+
+          </div>
+        </BrowserRouter>
+    )
 }
-// This code here allows us to render our main component (in this case Parent)
-ReactDOM.render(<Main/>, document.getElementById("app"));
+
+render(<Root/>, document.querySelector('#main'));
