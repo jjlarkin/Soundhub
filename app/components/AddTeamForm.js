@@ -15,7 +15,13 @@ class AddTeamForm extends React.Component {
 
   render() {
     return (
-      <div> 'hello world' </div>
+      <div>
+        <form ref={(input) => this.teamForm = input} className="team-edit" onSubmit={(e) => this.createTeam(e)}>
+          <button type="submit">+ Add Team</button>
+          <input ref={(input) => this.name = input} type="text" placeholder="Team Name" />
+          <input ref={(input) => this.score = input} type="text" placeholder="Team Score" />
+        </form>
+      </div>
 
     )
   }
@@ -24,10 +30,6 @@ class AddTeamForm extends React.Component {
 export default AddTeamForm;
 
 
-      // <form ref={(input) => this.teamForm = input} className="team-edit" onSubmit={(e) => this.createTeam(e)}>
-      //     <button type="submit">+ Add Team</button>
-      //     <input ref={(input) => this.name = input} type="text" placeholder="Team Name" />
-      //   <input ref={(input) => this.score = input} type="text" placeholder="Team Score" />
 
 
 

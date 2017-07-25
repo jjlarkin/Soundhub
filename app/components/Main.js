@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import YTSearch from 'youtube-api-search';
+
 
 import SpotifyPlayer from './SpotifyPlayer';
 import AddTeamForm from './AddTeamForm'
@@ -19,19 +19,14 @@ class Main extends Component {
             selectedVideo: null
         };
 
-        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) =>{
-            this.setState({
-                videos:videos,
-                selectedVideo: videos[0]
-            });
-        });
+
     }
     render(){
         return (
             <div>
                 <AddTeamForm/>
                 {/*<HighScore/>*/}
-                <SpotifyPlayer/>
+                {/*<SpotifyPlayer/>*/}
 
             </div>
         );
