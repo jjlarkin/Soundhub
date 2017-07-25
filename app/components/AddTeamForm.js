@@ -15,23 +15,20 @@ class AddTeamForm extends React.Component {
 
   render() {
     return (
-      <form ref={(input) => this.teamForm = input} className="team-edit" onSubmit={(e) => this.createTeam(e)}>
-          <button type="submit">+ Add Team</button>
-          <input ref={(input) => this.name = input} type="text" placeholder="Team Name" />
-        <input ref={(input) => this.score = input} type="text" placeholder="Team Score" />
-
-
-
-      <form/>
+      <div> 'hello world' </div>
 
     )
   }
 }
 
-AddTeamForm.propTypes = {
-
-  addTeam: React.PropTypes.func.isRequired
-}
-
 export default AddTeamForm;
 
+
+      // <form ref={(input) => this.teamForm = input} className="team-edit" onSubmit={(e) => this.createTeam(e)}>
+      //     <button type="submit">+ Add Team</button>
+      //     <input ref={(input) => this.name = input} type="text" placeholder="Team Name" />
+      //   <input ref={(input) => this.score = input} type="text" placeholder="Team Score" />
+
+
+
+      // <form/>

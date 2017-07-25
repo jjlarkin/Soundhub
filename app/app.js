@@ -17,12 +17,14 @@ class App extends React.Component {
     this.addTeam = this.addTeam.bind(this);
     this.updateTeam = this.updateTeam.bind(this);     
 
-  }
+ 
 
   state = {
-    team: {},
-    HighestScore: {}
+    teams: {}, 
+    highestScore: {}  
   };
+
+   }
 
   componentWillMount() {
     // this runs right before the <App> is rendered
@@ -51,22 +53,21 @@ class App extends React.Component {
     localStorage.setItem(`order-${this.props.params.storeId}`, JSON.stringify(nextState.order));
   }
 
-  addTeam(Team) {
-    // update our state
-    const teams = {...this.state.teams};
-    // add in our new fish
-    const timestamp = Date.now();
-    teams[`team-${timestamp}`] = team;
-    // set state
-    this.setState({ teams });
-  }
+  // addTeam(teams) {
+  //   // update our state
+  //   const teams = this.state.teams;
+  //   // add in our new fish
+  //   const timestamp = Date.now();
+  //   teams[`team-${timestamp}`] = team;
+  //   // set state
+  //   this.setState({ teams });
+  // }
 
-  updateTeam = (key, updatedTeam) => {
-    const teams = {...this.state.teams};
+  updateTeam (key, updatedTeam) {
+    let teams = this.state.teams;
     teams[key] = updatedTeam;
     this.setState({ teams });
-  };
-
-console.log(Main);
+  }
+}
 // This code here allows us to render our main component (in this case Parent)
 ReactDOM.render(<Main/>, document.getElementById("app"));
