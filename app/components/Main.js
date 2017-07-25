@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-// import YTSearch from 'youtube-api-search';
-
-import SpotifyPlayer from './SpotifyPlayer';
 import AddTeamForm from './AddTeamForm'
 // import HighScore from './HighScore'
 
@@ -26,7 +23,7 @@ class Main extends Component {
             <div>
                 <AddTeamForm/>
                 {/*<HighScore/>*/}
-                <SpotifyPlayer/>
+                
 
             </div>
         );
