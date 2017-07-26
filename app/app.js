@@ -20,13 +20,8 @@ class App extends React.Component {
  
 
   state = {
-<<<<<<< HEAD
-    team: {},
-    highestScore: {}
-=======
-    teams: {}, 
-    highestScore: {}  
->>>>>>> 78b7e70447c3a69698a32ca4fca063e469d2f1e2
+        teamName: "",
+        score:0
   };
 
    }
