@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
-import base from './base';
+
+import Base from './Base';
+
+
+
 import Scoreboard from'./Scoreboard';
+
 import Team from './Team'
 
 class Login extends Component {
@@ -14,11 +19,11 @@ class Login extends Component {
       userId: null,
       password: null
     }
-        
+
     }
 
      componentDidMount() {
-    base.onAuth((user) => {
+    Base.onAuth((user) => {
       if(user) {
         this.authHandler(null, { user });
       }
@@ -27,11 +32,11 @@ class Login extends Component {
 
    authenticate(provider) {
     console.log(`Trying to log in with ${provider}`);
-    base.authWithOAuthPopup(provider, this.authHandler);
+    Base.authWithOAuthPopup(provider, this.authHandler);
   }
 
   logout() {
-    base.unauth();
+    Base.unauth();
     this.setState({ userId: null });
   }
 

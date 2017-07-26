@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import AddTeamForm from './AddTeamForm'
+
 import Scoreboard from './Scoreboard'
+
 
 
 
@@ -17,14 +19,19 @@ class Main extends Component {
             selectedVideo: null
         };
 
-      
+
     }
     render(){
         return (
             <div>
                 <AddTeamForm/>
+
+                {/*<HighScore/>*/}
+                {/*<PlayButton/>*/}
+
                 <Scoreboard/>
                 
+
 
             </div>
         );
