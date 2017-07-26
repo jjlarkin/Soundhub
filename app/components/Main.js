@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import AddTeamForm from './AddTeamForm'
-import Results from './Results'
+import Scoreboard from './Scoreboard'
 
 
 
@@ -23,7 +23,7 @@ class Main extends Component {
         return (
             <div>
                 <AddTeamForm/>
-                <Results/>
+                <Scoreboard/>
                 
 
             </div>

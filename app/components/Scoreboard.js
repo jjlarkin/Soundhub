@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Results extends React.Component {
+class Scoreboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,4 +23,4 @@ class Results extends React.Component {
 
 }
 
-export default Results
+export default Scoreboard
