@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import AddTeamForm from './AddTeamForm'
-// import HighScore from './HighScore'
+import Results from './Results'
+
 
 
 
@@ -22,7 +23,7 @@ class Main extends Component {
         return (
             <div>
                 <AddTeamForm/>
-                {/*<HighScore/>*/}
+                <Results/>
                 
 
             </div>

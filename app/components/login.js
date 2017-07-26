@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import base from './base';
-import HighScore from'./HighScore';
+import Results from'./Results';
 import Team from './Team'
 
 class Login extends Component {
