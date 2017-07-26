@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 var request = require("request");
 
 // Require User Schema
-var User = require("./models/User");
+var User = require("./models/user");
 
 // Create Instance of Express
 var app = express();
