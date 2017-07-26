@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 import AddTeamForm from './AddTeamForm'
 
+import Scoreboard from './Scoreboard'
+
+
 
 
 
@@ -22,8 +25,13 @@ class Main extends Component {
         return (
             <div>
                 <AddTeamForm/>
+
                 {/*<HighScore/>*/}
                 {/*<PlayButton/>*/}
+
+                <Scoreboard/>
+                
+
 
             </div>
         );

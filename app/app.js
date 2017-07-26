@@ -32,8 +32,9 @@ class App extends React.Component {
         //   state: 'teams'
         // });
 
-        // check if there is any order in localStorage
-        // const localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`);
+
+
+
 
         // if(localStorageRef) {
         //   // update our App component's order state
@@ -74,7 +75,7 @@ class App extends React.Component {
                 {/*Component Routes*/}
                 <div>
                     {/*HomePage*/}
-                    <Route exact path="/" component={() => <Login/>}/> {/*Login*/}
+                    <Route exact path="/" component={() => <Main/>}/> {/*Login*/}
                     <Route exact path="/Main" component={() => <Main/>}/> {/*Login*/}
                 </div>
             </Router>

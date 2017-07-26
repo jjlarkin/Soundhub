@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
+
 import Base from './Base';
+
+
+
+import Scoreboard from'./Scoreboard';
 
 import Team from './Team'
 
