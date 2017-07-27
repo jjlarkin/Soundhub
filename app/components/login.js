@@ -56,10 +56,10 @@ componentDidMount() {
     render(){
       return(
       <div>
-        <div className = ".head2">
+        <div className = ".head">
 
         <div className="wrapper">
-  <h1>SOUNDHUB</h1>
+  <h1 className="anim welcome">Welcome to SOUNDHUB</h1>
   {this.state.user ?
     <button onClick={this.logout}>Log Out</button>                
     :
@@ -74,8 +74,8 @@ componentDidMount() {
       </div>
     </div>
     :
-    <div className='wrapper'>
-      <p>Please Login to start playing.</p>
+    <div className='wrapper2'>
+      <p className="playing">Please Login to start playing.</p>
 
 
     </div>
