@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Main from "./components/Main";
 import Base from './components/Base';
 import Login from './components/Login';
+import Scoreboard from './components/Scoreboard';
 import "./sass/main.scss";
 
 
