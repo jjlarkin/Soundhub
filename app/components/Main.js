@@ -29,7 +29,7 @@ class Main extends Component {
 
                 {/*<HighScore/>*/}
                 {/*<PlayButton/>*/}
-                <Login/>
+                
 
                 <Scoreboard/>
                 
