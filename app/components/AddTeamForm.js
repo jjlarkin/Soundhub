@@ -69,7 +69,7 @@ render() {
               <form onSubmit={this.handleSubmit}>
                 <input type="text" name="teamName" placeholder="Team Coco?" onChange={this.handleChange} value={this.state.teamName} />
                 <input type="text" name="score" placeholder="Team Score" onChange={this.handleChange} value={this.state.score}/>
-                <button>Add Team</button>
+                <button className="bStyle">Add Team</button>
               </form>
           </section>
           <section className='display-team'>

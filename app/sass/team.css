@@ -15,6 +15,8 @@
 }
 
 .playing{
+  position: absolute;
+  top:10px;
   font-size: 20px;
   font-weight: bold;
   color:white;
@@ -61,6 +63,7 @@
   text-shadow:2px 4px blue;
   position: absolute;
   top:350px;
+  left:160px;
 }
 
 .fa {
@@ -97,6 +100,7 @@
   margin-right: auto;
 }
 
+
 .display-team {
   width: 40%;
   margin-left: 50px;
@@ -106,7 +110,17 @@
   text-align: center
 }
 
-.display-team button {
+.lower{
+  position:absolute;
+  top:40px;
+  left:65px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+
+.display-team button{
   margin-top: 20px;
   margin-left: auto;
   display: block;
