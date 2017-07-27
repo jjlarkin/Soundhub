@@ -9,8 +9,7 @@ export default {
 
     getSong() {
         const APIKEY="ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm";
-        // Figure out the geolocation
-        // const queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
+
         let queryURL = `https://api.napster.com/v2.1/tracks/top?apikey=${APIKEY}`;
 
 
