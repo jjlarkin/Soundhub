@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Login from './Login'
+import Game from './game'
 
 import AddTeamForm from './AddTeamForm'
 

@@ -20,7 +20,7 @@ let base = firebase.initializeApp(config);
 
 	
 	//let base = Rebase.createClass(baseApp.database());
-  export const providerGoogle = new firebase.auth.GoogleAuthProvider();
+  //export const providerGoogle = new firebase.auth.GoogleAuthProvider();
    export const providerFacebook = new firebase.auth.FacebookAuthProvider();
     //export const providerGitbhub = new firebase.auth.GithubAuthProvider();
 export const auth = base.auth();

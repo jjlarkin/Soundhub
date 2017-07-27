@@ -55,6 +55,7 @@ componentDidMount() {
 
     render(){
       return(
+      <div>
         <div className = ".head2">
 
         <div className="wrapper">
@@ -78,6 +79,25 @@ componentDidMount() {
     </div>
   }
   </div>
+</div>
+<section className='display-team'>
+    <div className="wrapper">
+      <ul>
+        {this.state.teams.map((team) => {
+          return (
+            <li key={team.id}>
+              <h3>{team.teamName}</h3>
+              <p>Score: {team.score}
+                 {team.user === this.state.user.displayName || team.user === this.state.user.email ?
+                   <button onClick={() => this.removeteam(team.id)}>Remove Team</button> : null}
+              </p>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  </section>
+
 </div>
         );
     }
