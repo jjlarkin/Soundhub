@@ -75,7 +75,7 @@ componentDidMount() {
     :
     <div className='wrapper'>
       <p>Please Login to start playing.</p>
-      
+
 
     </div>
   }
