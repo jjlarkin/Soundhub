@@ -76,7 +76,7 @@ class App extends React.Component {
                 {/*Component Routes*/}
                 <div>
                     {/*HomePage*/}
-                    <Route exact path="/" component={() => <Main/>}/> {/*Login*/}
+                    <Route exact path="/" component={() => <Login/>}/> {/*Login*/}
                     <Route exact path="/Main" component={() => <Main/>}/> {/*Login*/}
                 </div>
             </Router>
