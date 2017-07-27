@@ -4,7 +4,7 @@ class Scoreboard extends React.Component {
     constructor(props) {
         super(props);
        this.state = {
-       scores: [
+        results: [
                 {
                     teamName: 'team1',
                     score: 16,
@@ -34,8 +34,8 @@ class Scoreboard extends React.Component {
             
             <div className="results">
 
-                <h1>{this.state.teamName}</h1>
-                <p>{this.state.score}</p>
+                <h1>{this.state.results.teamName}</h1>
+                <p>{this.state.results.score}</p>
 
             </div>
         );
