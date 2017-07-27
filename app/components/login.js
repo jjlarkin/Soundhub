@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import base, { auth, providerFacebook } from './base.js';
 
 import Scoreboard from'./Scoreboard';
@@ -63,7 +63,7 @@ componentDidMount() {
   {this.state.user ?
     <button onClick={this.logout}>Log Out</button>                
     :
-    <button onClick={this.login}>Log In</button>              
+      <Link to="/Main"><button onClick={this.login}>Log In</button>   </Link>
   }
 </div>
 <div className=".head2">
@@ -76,6 +76,8 @@ componentDidMount() {
     :
     <div className='wrapper'>
       <p>Please Login to start playing.</p>
+
+
     </div>
   }
   </div>
