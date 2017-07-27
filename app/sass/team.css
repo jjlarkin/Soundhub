@@ -1,13 +1,10 @@
-.head {
+.head, .head2 {
   color: #fff;
   background-color: #103D5D;
   padding: 15px;
   border:3px solid white;
   position: absolute;
   right:10px;
-}
-
-.head{
   font-size: 25px;
   font-weight: 600;
   letter-spacing: 0.3px;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Login from './Login'
 
 import AddTeamForm from './AddTeamForm'
 
@@ -28,6 +29,7 @@ class Main extends Component {
 
                 {/*<HighScore/>*/}
                 {/*<PlayButton/>*/}
+                <Login/>
 
                 <Scoreboard/>
                 

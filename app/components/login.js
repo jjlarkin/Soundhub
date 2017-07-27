@@ -1,81 +1,86 @@
 import React, {Component} from 'react';
 
-import base from './base';
-
-
+import base, { auth, providerFacebook } from './base.js';
 
 import Scoreboard from'./Scoreboard';
 
 import Team from './Team'
 
 class Login extends Component {
-    constructor(props){
-        super(props);
-    this.renderLogin = this.renderLogin.bind(this);
-    this.authenticate = this.authenticate.bind(this);
-    this.logout = this.logout.bind(this);
-    this.authHandler = this.authHandler.bind(this);
+  constructor() {
+    super();
     this.state = {
-      userId: null,
-      password: null
+      teamName: '',
+      score: 0,
+      teams: [],
+      user: null 
     }
+  this.login = this.login.bind(this); 
+  this.logout = this.logout.bind(this);
+  }
 
-    }
+  handleChange(e) {
+  this.setState({
+    [e.target.name]: e.target.value
+  });
 
-     componentDidMount() {
-    base.onAuth((user) => {
-      if(user) {
-        this.authHandler(null, { user });
-      }
+  }
+logout() {
+  auth.signOut()
+    .then(() => {
+      this.setState({
+        user: null
+      });
     });
-  }
-
-   authenticate(provider) {
-    console.log(`Trying to log in with ${provider}`);
-    base.authWithOAuthPopup(provider, this.authHandler);
-  }
-
-  logout() {
-    base.unauth();
-    this.setState({ userId: null });
-  }
-
-  authHandler(err, authData)  {
-    console.log(authData);
-    if (err) {
-      console.error(err);
-      return;
-    }
-
+  
+}
+login() {
+  auth.signInWithPopup(providerFacebook ) 
+    .then((result) => {
+      const user = result.user;
+      this.setState({
+        user
+      });
+    });
 }
 
-    renderLogin() {
-    return (
-      <nav className="login">
-        <h2>Inventory</h2>
-        <p>Sign in to SOUNDHUB!!!</p>
-        <button className="github" onClick={() => this.authenticate('github')}>Log In with Github</button>
-        <button className="facebook" onClick={() => this.authenticate('facebook')} >Log In with Facebook</button>
-        <button className="google" onClick={() => this.authenticate('google')} >Log In with Google</button>
-      </nav>
-    )
-  }
-
-
- render() {
-    const logout = <button onClick={this.logout}>Log Out!</button>;
-
-    // check if they are no logged in at all
-    if(!this.state.userId) {
-      return <div>{this.renderLogin()}</div>
+componentDidMount() {
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      this.setState({ user });
+    } 
+  });
     }
 
-    return (
-      <div>
-       HighScore
+
+    render(){
+      return(
+        <div className = ".head2">
+
+        <div className="wrapper">
+  <h1>SOUNDHUB</h1>
+  {this.state.user ?
+    <button onClick={this.logout}>Log Out</button>                
+    :
+    <button onClick={this.login}>Log In</button>              
+  }
+</div>
+<div className=".head2">
+ {this.state.user ?
+    <div>
+      <div className='user-profile'>
+        <img src={this.state.user.photoURL} />
       </div>
-    )
+    </div>
+    :
+    <div className='wrapper'>
+      <p>Please Login to start playing.</p>
+    </div>
+  }
+  </div>
+</div>
+        );
+    }
   }
 
-}
-export default Login;
+  export default Login;
