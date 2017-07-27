@@ -55,10 +55,11 @@ componentDidMount() {
 
     render(){
       return(
-        <div className = ".head2">
+      <div>
+        <div className = ".head">
 
         <div className="wrapper">
-  <h1>SOUNDHUB</h1>
+  <h1 className="anim welcome">Welcome to SOUNDHUB</h1>
   {this.state.user ?
     <button onClick={this.logout}>Log Out</button>                
     :
@@ -73,13 +74,32 @@ componentDidMount() {
       </div>
     </div>
     :
-    <div className='wrapper'>
-      <p>Please Login to start playing.</p>
+    <div className='wrapper2'>
+      <p className="playing">Please Login to start playing.</p>
 
 
     </div>
   }
   </div>
+</div>
+<section className='display-team'>
+    <div className="wrapper">
+      <ul>
+        {this.state.teams.map((team) => {
+          return (
+            <li key={team.id}>
+              <h3>{team.teamName}</h3>
+              <p>Score: {team.score}
+                 {team.user === this.state.user.displayName || team.user === this.state.user.email ?
+                   <button onClick={() => this.removeteam(team.id)}>Remove Team</button> : null}
+              </p>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  </section>
+
 </div>
         );
     }
