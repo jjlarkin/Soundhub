@@ -65,7 +65,7 @@ componentDidMount() {
   {this.state.user ?
     <button onClick={this.logout}>Log Out</button>                
     :
-      <Link to="/Main"><button onClick={this.login}>Log In</button>   </Link>
+      <Link to="/Main"><button className='lower'onClick={this.login}>Log In</button>   </Link>
   }
 </div>
 <div className=".head2">
@@ -84,23 +84,23 @@ componentDidMount() {
   }
   </div>
 </div>
-<section className='display-team'>
-    <div className="wrapper">
-      <ul>
-        {this.state.teams.map((team) => {
-          return (
+ <section className='display-team'>
+     <div className="wrapper">
+       <ul>
+         {this.state.teams.map((team) => {
+           return (
             <li key={team.id}>
-              <h3>{team.teamName}</h3>
+               <h3>{team.teamName}</h3>
               <p>Score: {team.score}
-                 {team.user === this.state.user.displayName || team.user === this.state.user.email ?
-                   <button onClick={() => this.removeteam(team.id)}>Remove Team</button> : null}
-              </p>
-            </li>
-          )
+                  {team.user === this.state.user.displayName || team.user === this.state.user.email ?
+                    <button onClick={() => this.removeteam(team.id)}>Remove Team</button> : null}
+               </p>
+             </li>
+           )
         })}
       </ul>
-    </div>
-  </section>
+     </div>
+   </section>
 
 </div>
         );
