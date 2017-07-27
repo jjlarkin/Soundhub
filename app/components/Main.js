@@ -6,6 +6,7 @@ import Game from './game'
 import AddTeamForm from './AddTeamForm'
 
 import Scoreboard from './Scoreboard'
+import PlayButton from './PlayButton'
 
 
 
@@ -30,9 +31,10 @@ class Main extends Component {
 
                 {/*<HighScore/>*/}
                 {/*<PlayButton/>*/}
-                
+
 
                 <Scoreboard/>
+                <PlayButton/>
                 
 
 
