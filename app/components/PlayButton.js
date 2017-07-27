@@ -1,7 +1,13 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import AudioPlayer from 'react-responsive-audio-player';
+
 import '../sass/index.scss';
+
+
+  
+
+
 var playlist =
     [{ url: 'audio/track1.mp3',
 
@@ -11,7 +17,9 @@ var playlist =
 
 
 class PlayButton extends React.Component {
-    render () {
+
+
+     render () {
         return (
 
             <AudioPlayer playlist={playlist} hideBackSkip={true} />
