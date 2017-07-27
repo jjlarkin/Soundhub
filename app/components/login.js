@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Base from './Base';
+import base from './base';
 
 
 
@@ -23,7 +23,7 @@ class Login extends Component {
     }
 
      componentDidMount() {
-    Base.onAuth((user) => {
+    base.onAuth((user) => {
       if(user) {
         this.authHandler(null, { user });
       }
@@ -32,11 +32,11 @@ class Login extends Component {
 
    authenticate(provider) {
     console.log(`Trying to log in with ${provider}`);
-    Base.authWithOAuthPopup(provider, this.authHandler);
+    base.authWithOAuthPopup(provider, this.authHandler);
   }
 
   logout() {
-    Base.unauth();
+    base.unauth();
     this.setState({ userId: null });
   }
 
