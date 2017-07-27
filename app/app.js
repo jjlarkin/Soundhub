@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
 // Include the main Parent Component
 import Main from "./components/Main";
-import Base from './components/Base';
+import base from './components/base';
 import Login from './components/Login';
 import "./sass/main.scss";
+
 
 
 class App extends React.Component {
